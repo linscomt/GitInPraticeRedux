@@ -34,8 +34,8 @@ public class CardTran extends Transaction implements Cryptable {
     private boolean isARQCTimeout = false;
 
     public CardTran(Message message, int zoneKeyIndex, String track2, String account, String pin) {
-        this(message, track2, account, pin);
-        this.zoneKeyIndex = zoneKeyIndex;
+       // this(message, track2, account, pin);
+        this.zoneKeyIndex = zoneKeyIndex + 1;
     }
 
     public CardTran(Message message, String track2, String account, String pin) {
@@ -49,8 +49,7 @@ public class CardTran extends Transaction implements Cryptable {
     public CardTran(Message message, String track2, String account, String pin, ICCData iccdata) {
         super(message);
         this.track2 = track2;
-        this.account = account;
-        this.pin = pin;
+       
         this.zpk = server.getParameter().getIWK().getKey();
         this.iccData = iccdata;
     }
