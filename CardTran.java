@@ -49,7 +49,8 @@ public class CardTran extends Transaction implements Cryptable {
     public CardTran(Message message, String track2, String account, String pin, ICCData iccdata) {
         super(message);
         this.track2 = track2;
-       
+       this.account = account;
+		-	        this.pin = pin;
         this.zpk = server.getParameter().getIWK().getKey();
         this.iccData = iccdata;
     }
